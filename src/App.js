@@ -1,17 +1,21 @@
-//Css applied to all components here using index.css
-
 import Navbar from './Navbar.js';
 import Home from './Home.js';
+import Create from './Create';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />    {/* This can also be <Navbar></Navbar> */}
-      
-      <div className="content">
-        <Home />
+    <Router>
+      <div className='App'>
+        <Navbar />
+        <div className='content'>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
